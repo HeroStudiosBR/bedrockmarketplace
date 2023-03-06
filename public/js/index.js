@@ -35,7 +35,7 @@ window.addEventListener("load", function(event){
 })
 function LoadHome(){
     //general
-    buttonIcon("oreui-button", "Home", "generalNav", "public/ssets/general.png", "home-btn", tabSystem, JSON.stringify({id: "Home", tabid:"home"}))
+    buttonIcon("oreui-button", "Home", "generalNav", "public/assets/general.png", "home-btn", tabSystem, JSON.stringify({id: "Home", tabid:"home"}))
     buttonIcon("oreui-button", "Account", "generalNav", "public/assets/profile_steve.png", "account-btn", tabSystem, JSON.stringify({id: "Account", tabid:"account-tab", alttabid:"login-and-register"}))
     buttonIcon("oreui-button", "Create Project", "creatorNav", "public/assets/creator.png", "create-project-btn", tabSystem, JSON.stringify({id: "Create-Project", tabid:"create-project-tab", alttabid:"need-sign-screen"}))
     //creations
