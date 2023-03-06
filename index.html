@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Bedrock Marketplace</title>
+        <link rel="stylesheet" href="public/css/general.css">
+        <link rel="stylesheet" href="public/css/assets.css">
+        <link rel="icon" href="public/assets/web-icon.webp">
+    </head>
+    <body>
+        <div id="header" class="oreui-header">
+            <label class="oreui-label-header1">Bedrock Marketplace</label>
+        </div>
+        <div id="navigation">
+            <div id="generalNav" class="oreui-panel-black">
+                <label class="oreui-label-body">General</label>
+            </div>
+            <div id="creationsNav" class="oreui-panel-black">
+                <label class="oreui-label-body">Creations</label>
+            </div>
+            <div id="creatorNav" class="oreui-panel-black">
+                <label class="oreui-label-body">Creator</label>
+            </div>
+        </div>
+        <div id="center">
+            <img src="public/assets/nothing-here.png">
+            <label class="oreui-label-body">Nothing Here</label>
+            <!--Tabs--> 
+            <section id="account-tab" style="display: none;" data-btnresponse="account-btn" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Profile</label></div>
+                    <div class="oreui-panel-green" id="profile-header">
+                        <img src="public/assets/profile_steve.png" id="profile-icon"/>
+                        <div id="profile-username-panel">
+                            <label class="oreui-label-body" id="profile-username">HeroStudios UWU</label>
+                            <mark class="newer-highlight-label">Newer</mark>
+                        </div>
+                    </div>
+                    <div id="profile-body">
+                       <div id="projects-container" class="oreui-panel-black-inside">
+                       </div>
+                    </div>
+                </div>
+            </section>
+            <section id="realms-tab" style="display: none;" data-btnresponse="realms-btn" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Realms</label></div>
+                </div>
+            </section>
+            <section id="create-project-tab" style="display: none;" data-btnresponse="create-project-btn" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Create Project</label></div>
+                    <div id="create-project-panel">
+                       <input type="text" placeholder="Title" class="oreui-textbox" id="create-project-title">
+                       <textarea class="oreui-textbox" maxlength="200" placeholder="Description" id="create-project-description"></textarea>
+                       <div id="category-btns"></div>
+                       <input type="text" placeholder="Tags (tag1, tag2)" class="oreui-textbox" id="create-project-tags">
+                       <label class="oreui-label-body" id="create-project-thumb" tabindex="0">
+                        <span>Choose Thumbanil</span>
+                        <div id="image-area"></div>
+                        <input id="input-thumb" type="file" accept="image/*" onchange="setThumbnail(event)">
+                       </label>
+                       <div id="more-btns" style="margin: 0 5; color:#000000;">
+                          <label class="oreui-label-body">More Options</label>
+                       </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Tabs--> 
+            <!--Others Screen--> 
+            <section id="login-and-register" style="display: none;" data-btnresponse="account-btn" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Login and Register</label></div>
+                    <div id="login">
+                        <label class="oreui-label-body">Email to Connect <img class="warning-img" src="public/assets/warning.png"></label>
+                        <input type="email" placeholder="Email" class="oreui-textbox" id="login-email-input">
+                        <label class="oreui-label-body">Password to Connect <img class="warning-img" src="public/assets/warning.png"></label>
+                        <input type="password" placeholder="Password" class="oreui-textbox" id="login-password-input">
+                    </div>
+                    <div id="register">
+                        <label class="oreui-label-body">Username</label>
+                        <input type="text" placeholder="Username" class="oreui-textbox" id="register-username-input">
+                        <label class="oreui-label-body">Email</label>
+                        <input type="email" placeholder="Email" class="oreui-textbox" id="register-email-input">
+                        <label class="oreui-label-body">Password</label>
+                        <input type="password" placeholder="Password" class="oreui-textbox" id="register-password-input">
+                        <label class="oreui-label-body">Confirm Password</label>
+                        <input type="password" placeholder="Confirm Password" class="oreui-textbox" id="register-confirm-password-input">
+                    </div>
+                    <div id="errors-list" class="oreui-panel-black">
+                        <label class="oreui-label-body" style="color: #c4c4c4;">Error Console</label>
+                        <div id="errors-console" class="oreui-panel-black-inside">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="error-screen" style="display: none;" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Error</label></div>
+                    <div id="panel">
+                        <img src="public/assets/errorMessage.png">
+                        <label class="oreui-label-body">Error loading Tab <br> trying to open secret tabs uh?</label>
+                    </div>
+                </div>
+            </section>
+            <section id="verification-screen" style="display: none;" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Verify NOWWWW!!</label></div>
+                    <div id="verification-panel">
+                        <img src="public/assets/verificationWait.png">
+                        <label class="oreui-label-body">ooooooooh yeah <br> verification awaits you <br> celebrate after you verify</label>
+                    </div>
+                </div>
+            </section>
+            <section id="need-sign-screen" style="display: none;" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Sign in for More!!</label></div>
+                    <div id="need-sign-panel">
+                        <img src="public/assets/sign-for-more.png">
+                        <label class="oreui-label-body">connect for new future content <br> evaluate projects, create projects, etc..</label>
+                    </div>
+                </div>
+            </section>
+            <!--End of Other Screens--> 
+        </div>
+    </body>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+    <script src="public/js/bindings.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/network-new.js"></script>
+    <script src="public/js/elements.js"></script>
+    <script src="public/js/index.js"></script>
+</html>
