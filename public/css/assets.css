@@ -1,15 +1,15 @@
 /*fonts*/
 @font-face {
     font-family: Minecraft Seven;
-    src: url("../fonts/minecraft-seven.otf");
+    src: url("public/fonts/minecraft-seven.otf");
 }
 @font-face {
     font-family: Minecraft Ten;
-    src: url("../fonts/minecraft-ten.otf");
+    src: url("public/fonts/minecraft-ten.otf");
 }
 @font-face {
     font-family: Minecraft Five;
-    src: url("../fonts/minecraft-five.otf");
+    src: url("public/fonts/minecraft-five.otf");
 }
 /*animations*/
 @keyframes shake {
