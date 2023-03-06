@@ -1,0 +1,11 @@
+ <div>
+                <label class="oreui-checkbox-container">
+                    <input type="checkbox" class="oreui-checkbox">
+                    <span class="oreui-checkmark"></span>
+                 </label>
+             </div>
+             <label class="oreui-toggle-switch-container">
+                <input type="checkbox" class="oreui-toggle-switch">
+                <span class="oreui-toggle-switch-shadow"></span>
+                <span class="oreui-toggle-switch-cube"><span class="oreui-toggle-switch-inner"></span></span>
+             </label>
