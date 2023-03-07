@@ -33,7 +33,6 @@ firebase.auth().onAuthStateChanged(user=>{
             location.href = "#need-sign-screen"
             location.reload()
         }
-        tabLoad(tabCurrent)
     }
     tabLoad(url[1])
 })
