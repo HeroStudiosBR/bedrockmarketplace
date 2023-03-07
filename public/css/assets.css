@@ -1,11 +1,11 @@
 /*fonts*/
 @font-face {
     font-family: Minecraft Seven;
-    src: url("../fonts-web/minecraft-seven.otf");
+    src: url("../fonts-web/mojang-minecraft-seven.otf");
 }
 @font-face {
     font-family: Minecraft Ten;
-    src: url("../fonts-web/minecraft-ten.otf");
+    src: url("../fonts-web/mojang-minecraft-ten.otf");
 }
 @font-face {
     font-family: Minecraft Five;
