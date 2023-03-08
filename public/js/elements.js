@@ -102,6 +102,10 @@ function projectElement(rootID, text, imgpath, tab, data={}){
         release.innerHTML = new Date(data.release).toLocaleDateString()
         category.innerHTML = data.category
     })
+    project.addEventListener("click", function(){
+        location.href = "#project-screen?="+data.projectId
+        location.reload()
+    })
     project.addEventListener("mouseleave", function(){
         const title = document.getElementById(tab+"-info-project-title")
         const price = document.getElementById(tab+"-info-project-price")

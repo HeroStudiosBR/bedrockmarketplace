@@ -12,22 +12,30 @@ let screenList = [
     "addons-tab",
     "maps-tabs",
     "create-project-tab",
-    "need-sign-screen"
+    "need-sign-screen",
+    "project-screen",
+    "edit-project-screen",
+    "loading-screen"
 ]
 window.addEventListener("hashchange", function(event){
-    let url = String(document.URL).split("#", 2)
-    if(!screenList.includes(url[1])){
+    let screen = String(document.URL).split("#", 2)
+    let entered = String(screen[1]).split("?=", 2)
+    if(!screenList.includes(entered[0])){
         location.reload()
     }
 })
 window.addEventListener("load", function(event){
-    let url = String(document.URL).split("#", 2)
-    tabCurrent = url[1]
+    let screen = String(document.URL).split("#", 2)
+    let entered = String(screen[1]).split("?=", 2)
+    tabCurrent = entered[0]
+    console.log(tabCurrent)
     if(screenList.includes(tabCurrent)){
-        let tab = document.getElementById(url[1])
-        tab.style.display = "block"
+        document.getElementById("loading-screen").style.display = "block"
+        let tab = document.getElementById(entered[0])
+        tab.style.display = "none"
         document.getElementById(tab.dataset.btnresponse).className += ' active';
-    }else if(!screenList.includes(tabCurrent) && url[1] != undefined){
+        
+    }else if(!screenList.includes(tabCurrent) && entered[0] != undefined){
         location.href = "#error-screen"
         let tab = document.getElementById("error-screen")
         tab.style.display = "block"
@@ -59,12 +67,14 @@ function loadCreateProject(){
         const projectTags = document.getElementById("create-project-tags")
         const projectDescription = document.getElementById("create-project-description")
         const projectImage = document.getElementById("thumb-img")
+        const projectIconImage = document.getElementById("icon-img")
         let currentTags = projectTags.value.split(",", 5)
         console.log("clicado")
         sendProjectToServer({
             title: projectTitle.value,
             description: projectDescription.value,
             projectThumb: projectImage.src,
+            projectIcon: projectIconImage.src,
             category: document.getElementById("category-selection-btn").childNodes[1].value,
             tags: currentTags,
             release: Date.now(),

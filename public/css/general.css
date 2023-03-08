@@ -180,6 +180,41 @@ body{
     height: 100%;
     display: none;
 }
+
+#create-project-tab #create-project-icon{
+    width: 128;
+    height: 128;
+    aspect-ratio: 1/1;
+    display: flex;
+    color: #757575;
+    margin: 0 5px;
+    background-color: #313233;
+    outline: #1e1e1f dashed 2px;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.95, 0.95);
+    transition: transform 100ms ease-in-out;
+}
+#create-project-tab #create-project-icon:hover{
+    outline: #c1c1c4 dashed 2px;
+    transform: scale(1, 1);
+    transition: transform 100ms ease-in-out;
+}
+#create-project-tab #create-project-icon img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#create-project-tab #create-project-icon #icon-area{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#create-project-tab #create-project-icon #input-icon{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
 /*End of Tabs Screens*/
 /*Login and Register*/
 #login-and-register{
@@ -323,6 +358,115 @@ body{
    margin: 6 0;
 }
 #need-sign-screen #need-sign-panel{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*Project Screen*/
+#project-screen{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+}
+#project-screen .oreui-window-header, #project-screen .oreui-window{
+    background-color: rgb(250, 45, 90);
+}
+#project-screen .oreui-button{
+   margin: 6 0;
+}
+#project-screen #project-panel{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+    top: 8;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+}
+#project-screen #project-header{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+#project-screen #project-body{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+#project-screen #project-panel #project-icon{
+    width: 100;
+    height: 100;
+    scale: 0.9;
+    box-sizing: border-box;
+    outline: #1e1e1f solid 2px;
+    background-color: #757575;
+}
+#project-screen #project-panel #project-title{
+    height: 32;
+    align-items: left;
+    text-align: left;
+    color: #d8d8d8;
+    font-size: 28;
+}
+#project-screen #project-panel #project-description-header{
+    height: auto;
+    align-items: left;
+    text-align: left;
+    color: #ededed;
+    font-size: 17;
+}
+#project-screen #project-panel #project-description{
+    height: auto;
+    align-items: left;
+    text-align: left;
+    margin: 0 1%;
+    color: #d8d8d8;
+    font-size: 17;
+}
+#project-screen #project-panel #project-media{
+    width: 520;
+    height: 128;
+    margin: 1% auto;
+    box-sizing: border-box;
+    padding: 0 2%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+#project-screen #project-panel #project-media img{
+    width: 240;
+    height: 120;
+    scale: 0.95;
+}
+/*Loading Screen*/
+#loading-screen{
+    height: 400px;
+    width: 600px;
+    position: absolute;
+}
+#loading-screen .oreui-window-header, #loading-screen .oreui-window{
+    background-color: rgb(255, 255, 255);
+}
+#loading-screen #panel{
     height: 400px;
     width: 600px;
     position: absolute;

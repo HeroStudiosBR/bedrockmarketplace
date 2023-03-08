@@ -53,14 +53,19 @@
                        <textarea class="oreui-textbox" maxlength="200" placeholder="Description" id="create-project-description" autocomplete="off"></textarea>
                        <div id="category-btns"></div>
                        <input type="text" placeholder="Tags (tag1, tag2)" class="oreui-textbox" id="create-project-tags" autocomplete="off">
+                       <div id="more-btns" style="margin: 0 5; color:#000000;">
+                        <label class="oreui-label-body">More Options</label>
+                       </div>
                        <label class="oreui-label-body" id="create-project-thumb" tabindex="0">
                         <span>Choose Thumbanil</span>
                         <div id="image-area"></div>
                         <input id="input-thumb" type="file" accept="image/*" onchange="setThumbnail(event)">
                        </label>
-                       <div id="more-btns" style="margin: 0 5; color:#000000;">
-                          <label class="oreui-label-body">More Options</label>
-                       </div>
+                       <label class="oreui-label-body" id="create-project-icon" tabindex="0">
+                        <span>Choose Icon</span>
+                        <div id="icon-area"></div>
+                        <input id="input-icon" type="file" accept="image/*" onchange="setIcon(event)">
+                       </label>
                     </div>
                 </div>
             </section>
@@ -116,6 +121,38 @@
                     <div id="need-sign-panel">
                         <img src="assets/sign-for-more.png">
                         <label class="oreui-label-body">connect for new future content <br> evaluate projects, create projects, etc..</label>
+                    </div>
+                </div>
+            </section>
+            <section id="project-screen" style="display: none;" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Project</label></div>
+                    <div id="project-panel">
+                        <div id="project-header" class="oreui-panel-black">
+                            <img id="project-icon" src="assets/icon_temp.png">
+                            <label id="project-title" class="oreui-label-body">Project Title</label>
+                        </div>
+                        <div id="project-body" class="oreui-panel-black">
+                            <label id="project-description-header" class="oreui-label-body">Description</label>
+                            <label id="project-description" class="oreui-label-body">Descriptionaaaa<br>aaaaa</label>
+                            <label id="project-description-header" class="oreui-label-body">Project Media</label>
+                            <div id="project-media" class="oreui-panel-black-inside">
+                                <img id="project-screenshot" src="assets/map-thumb.png">
+                                <img id="project-screenshot" src="assets/map-thumb.png">
+                                <img id="project-screenshot" src="assets/map-thumb.png">
+                                <img id="project-screenshot" src="assets/map-thumb.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="loading-screen" style="display: none;" class="oreui-panel-black">
+                <div class="oreui-window">
+                    <div class="oreui-window-header"><label class="oreui-label-body">Loading</label></div>
+                    <div id="panel">
+                        <img src="assets/loading.gif">
+                        <label class="oreui-label-body">Loading</label>
                     </div>
                 </div>
             </section>

@@ -1,40 +1,40 @@
 //User Data
 var logged = false
+var loading = true
 var tabCurrent = "home"
 var localUserData = {}
 var localWebLoaded = false
 var localUserFire = null
 firebase.auth().useDeviceLanguage();
 firebase.auth().onAuthStateChanged(user=>{
-    let url = String(document.URL).split("#", 2)
+    let screen = String(document.URL).split("#", 2)
+    let entered = String(screen[1]).split("?=", 2)
+    console.log(entered[0])
     if(user){
         console.log(user)
         localUserFire = user
         if(user.emailVerified == true){
-            logged = true
-            if( url[1] == "login-and-register" || url[1] == "verification-screen"){
+            if( entered[0] == "login-and-register" || entered[0] == "verification-screen"){
                 location.href = "#account-tab"
                 location.reload()
             }
         }else if(user.emailVerified == false){
-            logged = false
-            if( url[1] == "account-tab" || url[1] == "create-project-tab" || url[1] == "login-and-register"){
+            if( entered[0] == "account-tab" || entered[0] == "create-project-tab" || entered[0] == "login-and-register"){
                location.href = "#verification-screen"
                location.reload()
             }
         }
     }else{
-        let url = String(document.URL).split("#", 2)
-        if( url[1] == "account-tab" || url[1] == "verification-screen"){
+        if( entered[0] == "account-tab" || entered[0] == "verification-screen"){
             location.href = "#login-and-register"
             location.reload()
         }
-        if( url[1] == "create-project-tab"){
+        if( entered[0] == "create-project-tab"){
             location.href = "#need-sign-screen"
             location.reload()
         }
     }
-    tabLoad(url[1])
+    tabLoad(entered[0], screen[1])
 })
 //Login and Register Response
 function login(){
@@ -157,12 +157,11 @@ function projectsLoad(puid){
         result.docs.forEach(doc=>{
            if(doc.data().user != undefined && doc.data().user.uid == puid){
             let project = doc.data().projectbase
-            projectElement("projects-container", project.title, project.projectThumb, "profile", {title: project.title, price: "Free", release: project.release, category:project.category})
+            projectElement("projects-container", project.title, project.projectThumb, "profile", {title: project.title, price: "Free", release: project.release, category:project.category, projectId: doc.id})
            }
         })
     })
 }
-
 function sendProjectToServer(projectbase={}){
     let temp = {
         projectbase: projectbase,

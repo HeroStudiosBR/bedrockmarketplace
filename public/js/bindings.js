@@ -6,7 +6,11 @@ function tabSystem(event){
         location.reload()
     }
 }
-function tabLoad(id){
+function tabLoad(id, urlpath=undefined){
+   setTimeout(()=>{
+    document.getElementById(id).style.display = "block"
+    document.getElementById("loading-screen").style.display = "none"
+   }, 1000)
     if(id == "account-tab"){
         loadProfile()
     }
@@ -19,13 +23,29 @@ function tabLoad(id){
     if(id == "create-project-tab"){
         loadCreateProject()
     }
+    if(id == "project-screen"){
+        let projectid = String(urlpath).split("?=", 2)
+        let data = {}
+        if(projectid[1] != undefined){
+            firebase.firestore().collection("web-projects").doc(projectid[1]).get().then(result=>{
+                 data = result.data().projectbase
+                 document.getElementById("project-title").innerHTML = data.title
+                 document.getElementById("project-description").innerHTML = data.description
+                 document.getElementById("project-icon").src = data.projectIcon
+            })
+        }
+    }
+}
+function test(id){
+    let returno;
+    return returno = {d: id}
 }
 //label
 function truncate(str, maxlength) {
     return (str.length > maxlength) ?
       str.slice(0, maxlength - 1) + '…' : str;
 }
-//thumbs
+//project
 function setThumbnail(event){
     const inputTar = event.target
     const file = inputTar.files[0]
@@ -44,6 +64,26 @@ function setThumbnail(event){
         reader.readAsDataURL(file)
     }else{
         document.getElementById("image-area").innerHTML = ""
+    }
+}
+function setIcon(event){
+    const inputTar = event.target
+    const file = inputTar.files[0]
+    console.log(file)
+    if(file){
+        const reader = new FileReader();
+        reader.addEventListener("load", function(e){
+            const readerTarget = e.target
+            const img = document.createElement('img')
+            img.src = readerTarget.result;
+            img.id = "icon-img"
+            img.classList.add('screenshot_img')
+            document.getElementById("icon-area").innerHTML = ""
+            document.getElementById("icon-area").appendChild(img)
+        })
+        reader.readAsDataURL(file)
+    }else{
+        document.getElementById("icon-area").innerHTML = ""
     }
 }
 function dataURLtoBlob(dataurl) {
